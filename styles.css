@@ -1,0 +1,241 @@
+:root {
+    --body-bg-color: #c5e4e7;
+    --right-content-wrap-bg-color: #00474a;
+    --right-content-text-color: #9abfc5;
+    --right-smaller-text-color: #9abfc5;
+    --tip-btn-bg-color: #00474a;
+    --light-tip-btn-bg-color: #27c2ae;
+    --right-tip-number-color: #37b2a3;
+    --right-reset-text-color: #00474a;
+    --right-reset-text-color2: #366563;
+    --input-bg-color: #f2f8fb;
+
+    /* font */
+    --font-text: 'poetsenone', sans-serif;
+} 
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box; /* Add this to ensure padding and border are included in the element's total width and height */
+}
+
+body {
+    background-color: rgb(192, 255, 252);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    font-family: var(--font-text);
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 65vh; /* Use viewport height for responsiveness */
+    /* width: 70vw;  */
+    width: 52vw;
+    max-width: 100%; /* Set a max-width to prevent it from getting too large */
+    max-height: 100%; /* Set a max-height to prevent it from getting too large */
+    background-color: #fff;
+    padding: 2rem; /* Add some padding for better spacing */
+    border-radius: 15px; /* Optional: Add some border-radius for better aesthetics */
+    gap: 1.5rem;
+}
+
+/* Cotent inside container styles */
+.left-content-wrap {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.right-content-wrap {
+    width: 50%;
+    height: 100%;
+    background-color: var(--right-content-wrap-bg-color);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.top-right-wrap {
+    /* height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; */
+    height: 60%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 0 auto;
+}
+
+.tip-amount-wrap, .total {
+    /* display: flex;
+    padding: 10.5px 15px;
+    justify-content: space-between;
+    height: fit-content;
+    align-items: center; */
+
+    display: flex;
+    /* padding: 10.5px 15px; */
+    padding: 10.5px 0px;
+    justify-content: space-between;
+    height: fit-content;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+}
+.taw-sub-wrap, .total-sub-wrap h4 {
+    color: var(--right-content-text-color);
+    font-family: sans-serif;
+}
+.taw-sub-wrap, .total-sub-wrap p {
+    color: var(--right-smaller-text-color);
+    font-family: sans-serif;
+    font-size: 1em;
+    /* font-size: 12px; */
+}
+
+.tip-amount, .total-amount {
+    /* font-size: 30px;
+    font-family: 'poetsenone', sans-serif;
+    color: var(--right-tip-number-color); */
+    font-size: 2rem;
+    max-width: 10rem;
+    min-width: 1rem;
+    font-family: 'poetsenone', sans-serif;
+    color: var(--right-tip-number-color);
+}
+
+.right-reset-button {
+    height: 36px;
+    background: var(--light-tip-btn-bg-color);
+    /* width: 15em; */
+    width: 85%;
+    margin: auto;
+    /* margin: 12px 18px; */
+    border-radius: 8px;
+    border: none;
+}
+
+/* left content styles */
+.bill-amount-wrap {
+    height: 2.5em;
+    width: 100%;
+    /* border: 1px solid green; */
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 10px;
+    background-color: var(--input-bg-color);
+}
+
+#bill-amount, #people {
+    /* border: none;
+    text-align: right; */
+
+    border: none;
+    text-align: right;
+    font-size: 20px;
+    width: fit-content;
+    max-width: 70%;
+    background-color: transparent;
+}
+
+input:focus {
+    outline: none;
+}
+
+.select-tip-wrap {
+    height: 36%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.tip-buttons-wrap {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.select-tip-label {
+    font-size: 12px;
+    font-family: 'Courier New', Courier, monospace;
+    color: var(--right-content-wrap-bg-color);
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.tip-button-sub-wrap1, .tip-button-sub-wrap2 {
+    display: flex;
+    /* justify-content: flex-start; */
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.tip-button {
+    /* width: 27%; */
+    width: 35%;
+    /* height: 40px; */
+    height: 50px;
+    background-color: var(--tip-btn-bg-color);
+    border-radius: 5px;
+    border: none;
+    color: var(--right-content-text-color);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
+    font-weight: 700;
+}
+.tip-button:hover {
+    background-color: var(--right-content-text-color);
+    transition: ease-in-out 0.2s;
+    color: var(--right-reset-text-color);
+
+}
+
+.tip-button.active {
+    background-color: var(--light-tip-btn-bg-color);
+    color: var(--right-content-wrap-bg-color);
+    box-shadow: 3px 4px 8px #00000091;
+    transition: ease-in-out 0.1s;
+}
+
+.tip-button-custom {
+    /* width: 27%; */
+    width: 35%;
+    /* height: 40px; */
+    height: 50px;
+    /* background-color: var(--tip-btn-bg-color); */
+    border-radius: 5px;
+    border: 1px solid var(--light-tip-btn-bg-color);
+    color: var(--right-content-text-color);
+    font-family: 'Courier New', Courier, monospace;
+    /* font-size: 18px; */
+    font-size: 20px;
+    font-weight: 700;
+    text-align: right;
+}
+
+.input-div-people {
+    height: 2.5em;
+    width: 100%;
+    /* border: 1px solid green; */
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-left: 10px;
+    background-color: var(--input-bg-color);
+}
