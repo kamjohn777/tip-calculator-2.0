@@ -35,15 +35,19 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    /* height: 65vh;
+    width: 72vw;  */
+
     height: 65vh; /* Use viewport height for responsiveness */
     /* width: 70vw;  */
     width: 52vw;
-    max-width: 100%; /* Set a max-width to prevent it from getting too large */
-    max-height: 100%; /* Set a max-height to prevent it from getting too large */
+    max-width: 100%;
+    max-height: 100%;
     background-color: #fff;
-    padding: 2rem; /* Add some padding for better spacing */
-    border-radius: 15px; /* Optional: Add some border-radius for better aesthetics */
+    padding: 2rem;
+    border-radius: 15px;
     gap: 1.5rem;
+    position: relative;
 }
 
 /* Cotent inside container styles */
@@ -225,7 +229,8 @@ input:focus {
     /* font-size: 18px; */
     font-size: 20px;
     font-weight: 700;
-    text-align: right;
+    /* text-align: right; */
+    text-align: center;
 }
 
 .input-div-people {
@@ -238,4 +243,76 @@ input:focus {
     justify-content: flex-end;
     padding-left: 10px;
     background-color: var(--input-bg-color);
+}
+
+.lbl-wrap-error-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.error-txt-msg {
+    /* display: inline-block;
+    margin-left: 15rem; */
+    font-size: 12px;
+    color: red;
+}
+
+.input-div-people.error {
+    border: 1px solid red;
+
+}
+
+
+.custom-tip-zero-msg {
+    background-color: var(--input-bg-color);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* height: 18vh;
+    width: 68vw; */
+    height: 40%;
+    width: 60%;
+    box-shadow: 0px 0px 9px 3px;
+    border-radius: 8px;
+    transition: ease 0.4s;
+}
+/* Styles for mobile (screen width 600px or less) */
+@media screen and (max-width: 900px) {
+    .container {
+        flex-direction: column; /* Change to column for mobile screens */
+        height: 80vh;
+        /* width: 70vw; */
+        width: 90vw;
+    }
+
+    .right-content-wrap, .left-content-wrap {
+        width: 100%;
+    }
+
+    .select-tip-wrap {
+        height: 50%;
+    }
+
+    .select-tip-label {
+        margin-bottom: 0;
+    }
+
+    .tip-button, .tip-button-custom {
+        height: 30px;
+    }
+
+    .tip-button-custom {
+        font-size: 15px;
+    }
+
+}
+
+/* Styles for screens with width between 601px and 900px */
+@media screen and (min-width: 601px) and (max-width: 900px) {
+    .container {
+        width: 67vw; /* Set width to 67vw for these screen sizes */
+    }
 }
