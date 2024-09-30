@@ -1,17 +1,16 @@
-
-const billAmountInput = document.getElementById('bill-amount');
+const billAmountInput = document.getElementById("bill-amount");
 // Select all buttons inside the .tip-buttons container
-const tipButtons = document.querySelectorAll('.tip-buttons-wrap .tip-button');
+const tipButtons = document.querySelectorAll(".tip-buttons-wrap .tip-button");
 
 // Select the custom tip input
-const customTipInput = document.getElementById('custom-tip');
+const customTipInput = document.getElementById("custom-tip");
 
 // Select the elements to display the tip amount and total amount
-const tipAmountDisplay = document.querySelector('.tip-amount-wrap .tip-amount');
-const totalAmountDisplay = document.querySelector('.total .total-amount');
-const numOfPeople = document.getElementById('people');
-const inputDivPeople = document.querySelector('.input-div-people');
-const errorText = document.querySelector('.error-txt-msg');
+const tipAmountDisplay = document.querySelector(".tip-amount-wrap .tip-amount");
+const totalAmountDisplay = document.querySelector(".total .total-amount");
+const numOfPeople = document.getElementById("people");
+const inputDivPeople = document.querySelector(".input-div-people");
+const errorText = document.querySelector(".error-txt-msg");
 // steps
 // 1. Get the bill amount from the input field create a function to get the bill amount and pass the billAmountInput variable
 // 2. Get the tip amount from the button create a function to get the tip amount and pass the tipButtons variable
@@ -25,90 +24,117 @@ const errorText = document.querySelector('.error-txt-msg');
 
 // Function to calculate the tip amount and total cost per person
 function calculateTipAmount(tipPercentage, isDollarAmount = false) {
-    const billAmount = parseFloat(billAmountInput.value);
-    const people = parseFloat(numOfPeople.value);
+  const billAmount = parseFloat(billAmountInput.value);
+  const people = parseFloat(numOfPeople.value);
 
-    if (isNaN(billAmount) || billAmount <= 0) {
-        alert('Please enter a valid bill amount');
-        return;
-    }
+  if (isNaN(billAmount) || billAmount <= 0) {
+    alert("Please enter a valid bill amount");
+    return;
+  }
 
-    if (isNaN(people) || people <= 0) {
-        // alert('Please enter a valid number of people');
-        inputDivPeople.classList.add('error');
-        errorText.style.display = 'block';
-        setTimeout(() => {
-            inputDivPeople.classList.remove('error');
-            errorText.style.display = 'none';
-        }, 3000);
-        return;
-    }
+  if (isNaN(people) || people <= 0) {
+    // alert('Please enter a valid number of people');
+    inputDivPeople.classList.add("error");
+    errorText.style.display = "block";
+    setTimeout(() => {
+      inputDivPeople.classList.remove("error");
+      errorText.style.display = "none";
+    }, 3000);
+    return;
+  }
 
-    const tipAmount = billAmount * (tipPercentage / 100);
-    const tipPerPerson = tipAmount / people;
-    const totalAmount = billAmount + tipAmount;
-    const totalPerPerson = totalAmount / people;
+  const tipAmount = billAmount * (tipPercentage / 100);
+  const tipPerPerson = tipAmount / people;
+  const totalAmount = billAmount + tipAmount;
+  const totalPerPerson = totalAmount / people;
 
-    tipAmountDisplay.textContent = `$${tipPerPerson.toFixed(2)}`;
-    totalAmountDisplay.textContent = `$${totalPerPerson.toFixed(2)}`;
+  tipAmountDisplay.textContent = `$${tipPerPerson.toFixed(2)}`;
+  totalAmountDisplay.textContent = `$${totalPerPerson.toFixed(2)}`;
 }
 
 // Add an event listener for each tip button element
-tipButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const tipPercentage = parseFloat(button.textContent);
-        tipButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add("active");
-        calculateTipAmount(tipPercentage);
-        if (customTipInput.value) {
-            customTipInput.value = '';
-            tipButtons.forEach(btn => btn.classList.remove('active'));
-        }
-    });
+tipButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const tipPercentage = parseFloat(button.textContent);
+    tipButtons.forEach((btn) => btn.classList.remove("active"));
+    button.classList.add("active");
+    calculateTipAmount(tipPercentage);
+    if (customTipInput.value) {
+      customTipInput.value = "";
+      tipButtons.forEach((btn) => btn.classList.remove("active"));
+    }
+  });
 });
 
 // Add an event listener for the custom tip input
-customTipInput.addEventListener('input', () => {
-    const customTipPercentage = parseFloat(customTipInput.value);
-    if (!isNaN(customTipPercentage) && customTipPercentage >= 0) {
-        calculateTipAmount(customTipPercentage);
-    }
+customTipInput.addEventListener("input", () => {
+  const customTipPercentage = parseFloat(customTipInput.value);
+  if (!isNaN(customTipPercentage) && customTipPercentage >= 0) {
+    calculateTipAmount(customTipPercentage);
+  }
 
-    if (customTipPercentage === 0) {
-        let newCustomDivMsg = document.createElement('div');
-        // newCustomDivMsg.innerHTML = `<p class="custom-tip-msg">If you're broke then just say that</p>`;
-        newCustomDivMsg.innerHTML = 
-        `<div class="custom-tip-zero-msg">
+  if (customTipPercentage === 0) {
+    let newCustomDivMsg = document.createElement("div");
+    // newCustomDivMsg.innerHTML = `<p class="custom-tip-msg">If you're broke then just say that</p>`;
+    newCustomDivMsg.innerHTML = `<div class="custom-tip-zero-msg">
         <img class="custom-tip-zero-img" src="./assets/Screenshot_2024-09-29_152710-removebg-preview.png">
             <p>Pwase leave a tip?</p>
-            // add an image here later
             <button class="close-btn">X</button>
-            <button class="yes-btn">Yes</button>
-            <button class="no-btn">No</button>
+            <div class="yes-no-wrap">
+                <button class="yes-btn">Yes</button>
+                <button class="no-btn">No</button>
+            </div>
         </div>`;
 
-        // selecting our container element 
-        let container = document.querySelector('.container');
+    // selecting our container element
+    let container = document.querySelector(".container");
 
-        container.appendChild(newCustomDivMsg);
-    }
+    container.appendChild(newCustomDivMsg);
+
+    // adding event listener to the close button
+    const closeBtn = newCustomDivMsg.querySelector(".close-btn");
+    closeBtn.addEventListener("click", () => {
+      newCustomDivMsg.remove();
+    });
+
+    // adding event listener to the yes button
+    const yesBtn = newCustomDivMsg.querySelector(".yes-btn");
+    yesBtn.addEventListener("click", () => {
+        newCustomDivMsg.remove();
+    });
+
+    // adding event listener to the no button
+    const noBtn =  newCustomDivMsg.querySelector(".no-btn");
+    noBtn.addEventListener("click", () => {
+        newCustomDivMsg.innerHTML = 
+        `<div class="custom-tip-zero-msg">
+        <img class="custom-tip-zero-img" src="./assets/Screenshot 2024-09-30 140200.png">
+            <p>If you're broke just say that</p>
+            <button class="close-btn">X</button>
+            <div class="yes-no-wrap">
+                <button class="yes-btn">Yes</button>
+                <button class="no-btn">No</button>
+            </div>
+        </div>`;
+    })
+  }
 });
 
 // Add an event listener for the custom tip input focus event
-customTipInput.addEventListener('focus', () => {
-    tipButtons.forEach(btn => btn.classList.remove('active'));
+customTipInput.addEventListener("focus", () => {
+  tipButtons.forEach((btn) => btn.classList.remove("active"));
 });
 
 // Add an event listener for the number of people input
-numOfPeople.addEventListener('input', () => {
-    const activeButton = document.querySelector('.tip-button.active');
-    if (activeButton) {
-        const tipPercentage = parseFloat(activeButton.textContent);
-        calculateTipAmount(tipPercentage);
-    } else {
-        const customTipPercentage = parseFloat(customTipInput.value);
-        if (!isNaN(customTipPercentage) && customTipPercentage >= 0) {
-            calculateTipAmount(customTipPercentage);
-        }
+numOfPeople.addEventListener("input", () => {
+  const activeButton = document.querySelector(".tip-button.active");
+  if (activeButton) {
+    const tipPercentage = parseFloat(activeButton.textContent);
+    calculateTipAmount(tipPercentage);
+  } else {
+    const customTipPercentage = parseFloat(customTipInput.value);
+    if (!isNaN(customTipPercentage) && customTipPercentage >= 0) {
+      calculateTipAmount(customTipPercentage);
     }
+  }
 });
