@@ -79,6 +79,7 @@ customTipInput.addEventListener('input', () => {
         // newCustomDivMsg.innerHTML = `<p class="custom-tip-msg">If you're broke then just say that</p>`;
         newCustomDivMsg.innerHTML = 
         `<div class="custom-tip-zero-msg">
+        <img class="custom-tip-zero-img" src="./assets/Screenshot_2024-09-29_152710-removebg-preview.png">
             <p>Pwase leave a tip?</p>
             // add an image here later
             <button class="close-btn">X</button>

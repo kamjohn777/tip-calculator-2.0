@@ -277,7 +277,11 @@ input:focus {
     width: 60%;
     box-shadow: 0px 0px 9px 3px;
     border-radius: 8px;
-    transition: ease 0.4s;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.custom-tip-zero-img {
+    height: 45%;
 }
 /* Styles for mobile (screen width 600px or less) */
 @media screen and (max-width: 900px) {
