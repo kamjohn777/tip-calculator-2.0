@@ -91,23 +91,24 @@ customTipInput.addEventListener("input", () => {
 
     container.appendChild(newCustomDivMsg);
 
-    // adding event listener to the close button
-    const closeBtn = newCustomDivMsg.querySelector(".close-btn");
-    closeBtn.addEventListener("click", () => {
-      newCustomDivMsg.remove();
-    });
-
-    // adding event listener to the yes button
-    const yesBtn = newCustomDivMsg.querySelector(".yes-btn");
-    yesBtn.addEventListener("click", () => {
+    const addEventListeners = () => {
+      // adding event listener to the close button
+      const closeBtn = newCustomDivMsg.querySelector(".close-btn");
+      closeBtn.addEventListener("click", () => {
         newCustomDivMsg.remove();
-    });
+      });
 
-    // adding event listener to the no button
-    const noBtn =  newCustomDivMsg.querySelector(".no-btn");
-    noBtn.addEventListener("click", () => {
-        newCustomDivMsg.innerHTML = 
-        `<div class="custom-tip-zero-msg">
+      // adding event listener to the yes button
+      const yesBtn = newCustomDivMsg.querySelector(".yes-btn");
+      yesBtn.addEventListener("click", () => {
+        newCustomDivMsg.remove();
+        customTipInput.value = "";
+      });
+
+      // adding event listener to the no button
+      const noBtn = newCustomDivMsg.querySelector(".no-btn");
+      noBtn.addEventListener("click", () => {
+        newCustomDivMsg.innerHTML = `<div class="custom-tip-zero-msg">
         <img class="custom-tip-zero-img" src="./assets/Screenshot 2024-09-30 140200.png">
             <p>If you're broke just say that</p>
             <button class="close-btn">X</button>
@@ -116,7 +117,11 @@ customTipInput.addEventListener("input", () => {
                 <button class="no-btn">No</button>
             </div>
         </div>`;
-    })
+        // Have to call the function
+        addEventListeners();
+      });
+    };
+    addEventListeners();
   }
 });
 
