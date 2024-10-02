@@ -35,11 +35,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* height: 65vh;
-    width: 72vw;  */
-
-    height: 65vh; /* Use viewport height for responsiveness */
-    /* width: 70vw;  */
+    height: 65vh; 
     width: 52vw;
     max-width: 100%;
     max-height: 100%;
@@ -70,10 +66,6 @@ body {
 }
 
 .top-right-wrap {
-    /* height: 60%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around; */
     height: 60%;
     width: 90%;
     display: flex;
@@ -83,14 +75,7 @@ body {
 }
 
 .tip-amount-wrap, .total {
-    /* display: flex;
-    padding: 10.5px 15px;
-    justify-content: space-between;
-    height: fit-content;
-    align-items: center; */
-
     display: flex;
-    /* padding: 10.5px 15px; */
     padding: 10.5px 0px;
     justify-content: space-between;
     height: fit-content;
@@ -106,13 +91,9 @@ body {
     color: var(--right-smaller-text-color);
     font-family: sans-serif;
     font-size: 1em;
-    /* font-size: 12px; */
 }
 
 .tip-amount, .total-amount {
-    /* font-size: 30px;
-    font-family: 'poetsenone', sans-serif;
-    color: var(--right-tip-number-color); */
     font-size: 2rem;
     max-width: 10rem;
     min-width: 1rem;
@@ -123,10 +104,8 @@ body {
 .right-reset-button {
     height: 36px;
     background: var(--light-tip-btn-bg-color);
-    /* width: 15em; */
     width: 85%;
     margin: auto;
-    /* margin: 12px 18px; */
     border-radius: 8px;
     border: none;
 }
@@ -135,7 +114,6 @@ body {
 .bill-amount-wrap {
     height: 2.5em;
     width: 100%;
-    /* border: 1px solid green; */
     border-radius: 5px;
     display: flex;
     align-items: center;
@@ -145,9 +123,6 @@ body {
 }
 
 #bill-amount, #people {
-    /* border: none;
-    text-align: right; */
-
     border: none;
     text-align: right;
     font-size: 20px;
@@ -184,15 +159,12 @@ input:focus {
 
 .tip-button-sub-wrap1, .tip-button-sub-wrap2 {
     display: flex;
-    /* justify-content: flex-start; */
     justify-content: space-between;
     gap: 10px;
 }
 
 .tip-button {
-    /* width: 27%; */
     width: 35%;
-    /* height: 40px; */
     height: 50px;
     background-color: var(--tip-btn-bg-color);
     border-radius: 5px;
@@ -217,26 +189,20 @@ input:focus {
 }
 
 .tip-button-custom {
-    /* width: 27%; */
     width: 35%;
-    /* height: 40px; */
     height: 50px;
-    /* background-color: var(--tip-btn-bg-color); */
     border-radius: 5px;
     border: 1px solid var(--light-tip-btn-bg-color);
     color: var(--right-content-text-color);
     font-family: 'Courier New', Courier, monospace;
-    /* font-size: 18px; */
     font-size: 20px;
     font-weight: 700;
-    /* text-align: right; */
     text-align: center;
 }
 
 .input-div-people {
     height: 2.5em;
     width: 100%;
-    /* border: 1px solid green; */
     border-radius: 5px;
     display: flex;
     align-items: center;
@@ -253,8 +219,6 @@ input:focus {
 }
 
 .error-txt-msg {
-    /* display: inline-block;
-    margin-left: 15rem; */
     font-size: 12px;
     color: red;
 }
@@ -263,7 +227,6 @@ input:focus {
     border: 1px solid red;
 
 }
-
 
 .custom-tip-zero-msg {
     background-color: var(--input-bg-color);
@@ -280,12 +243,9 @@ input:focus {
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    /* height: 18vh;
-    width: 68vw; */
 }
 
 .custom-tip-zero-img {
-    /* height: 45%; */
     height: 65%;
 }
 
@@ -313,9 +273,8 @@ input:focus {
 /* Styles for mobile (screen width 600px or less) */
 @media screen and (max-width: 900px) {
     .container {
-        flex-direction: column; /* Change to column for mobile screens */
+        flex-direction: column;
         height: 80vh;
-        /* width: 70vw; */
         width: 90vw;
     }
 
@@ -344,44 +303,11 @@ input:focus {
 /* Styles for screens with width between 601px and 900px */
 @media screen and (min-width: 601px) and (max-width: 900px) {
     .container {
-        width: 67vw; /* Set width to 67vw for these screen sizes */
+        width: 67vw; 
     }
 }
 
-
 @media screen and (max-width: 1092px) and (max-height: 614px) {
-    /* Styles for 1366 x 768 resolution with 125% scale */
-    /* This code is for if a users default display size on computer is set to 1366 * 768 */
-    /*in this code you have to calculate the display port and scale of the device itself for example my settings are set to 1366 * 768 at 125% scale zoom 
-    o see the media query scale you can run the equation like this 
-   
-    Calculate the Effective Resolution:
-
-At 125% scale, the effective dimensions become:
-Width: 
-1366
-1.25
-≈
-1092.8
-1.25
-1366
-​
- ≈1092.8 (round down to 1092)
-Height: 
-768
-1.25
-≈
-614.4
-1.25
-768
-​
- ≈614.4 (round down to 614)
- 
- The media query @media screen and (max-width: 1092px) and (max-height: 614px) applies styles when the viewport dimensions are less than or equal to 1092 pixels in width and 614 pixels in height.
- */
-
-
- 
     .tip-button, .tip-button-custom {
         width: 30%;
         height: 36px;

@@ -11,16 +11,7 @@ const totalAmountDisplay = document.querySelector(".total .total-amount");
 const numOfPeople = document.getElementById("people");
 const inputDivPeople = document.querySelector(".input-div-people");
 const errorText = document.querySelector(".error-txt-msg");
-// steps
-// 1. Get the bill amount from the input field create a function to get the bill amount and pass the billAmountInput variable
-// 2. Get the tip amount from the button create a function to get the tip amount and pass the tipButtons variable
-// 3. Calculate the tip amount create a function to calculate the tip amount and pass the bill amount and tip amount
 
-// edge cases
-// 1. If the bill amount is empty, show an error message
-// 2. If the tip amount is empty, show an error message
-// 3. If the custom tip amount is empty, show an error message
-// 4. If the custom tip amount is less than 0, show an error message
 
 // Function to calculate the tip amount and total cost per person
 function calculateTipAmount(tipPercentage, isDollarAmount = false) {
@@ -33,7 +24,6 @@ function calculateTipAmount(tipPercentage, isDollarAmount = false) {
   }
 
   if (isNaN(people) || people <= 0) {
-    // alert('Please enter a valid number of people');
     inputDivPeople.classList.add("error");
     errorText.style.display = "block";
     setTimeout(() => {
@@ -75,7 +65,6 @@ customTipInput.addEventListener("input", () => {
 
   if (customTipPercentage === 0) {
     let newCustomDivMsg = document.createElement("div");
-    // newCustomDivMsg.innerHTML = `<p class="custom-tip-msg">If you're broke then just say that</p>`;
     newCustomDivMsg.innerHTML = `<div class="custom-tip-zero-msg">
         <img class="custom-tip-zero-img" src="./assets/Screenshot_2024-09-29_152710-removebg-preview.png">
             <p>Pwase leave a tip?</p>
